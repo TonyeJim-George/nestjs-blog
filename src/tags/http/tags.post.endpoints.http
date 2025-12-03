@@ -1,8 +1,8 @@
 POST http://localhost:3000/tags
 Content-Type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsImVtYWlsIjoidG9ueWUuamltQGdtYWlsLmNvbSIsImlhdCI6MTc2MTczMzI2NiwiZXhwIjoxNzYxNzM2ODY2LCJhdWQiOiJsb2NhbGhvc3Q6MzAwMCIsImlzcyI6ImxvY2FsaG9zdDozMDAwIn0.ikYtNbOVgmSt6JIFxlyb_ssE5gxsxYPWDWdzmOiANK0
 {
-  "name": "javascript",
-  "slug": "javascript",
-  "description": "All posts javascript"
+  "name": "NestJs",
+  "slug": "nestjs",
+  "description": "All posts about NestJs"
 }

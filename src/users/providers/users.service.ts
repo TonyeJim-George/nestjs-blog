@@ -18,6 +18,9 @@ import { UsersCreateManyProvider } from './users-create-many.provider';
 import { CreateManyUsersDto } from '../dtos/create-many-users.dto';
 import { CreateUserProvider } from './create-user.provider';
 import { FindOneUserByEmailProvider } from './find-one-user-by-email.provider';
+import { findOneByGoogleIdProvider } from './find-one-by-google-id';
+import { CreateGoogleUserProvider } from './create-google-user.provider';
+import { GoogleUser } from '../interface/google-user.interface';
 
 /**
  * Controller class for '/users' API endpoint
@@ -30,9 +33,6 @@ export class UsersService {
      */
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-
-    @Inject(profileConfig.KEY)
-    private readonly profileConfiguration: ConfigType<typeof profileConfig>,
 
     /**
      * Inject UsersCreateMany provider
@@ -47,6 +47,11 @@ export class UsersService {
      * Inject findOneUserByEmailProvider
      */
     private readonly findOneUserByEmailProvider: FindOneUserByEmailProvider,
+
+    private readonly findOneByGoogleIdProvider: findOneByGoogleIdProvider,
+
+    private readonly createGoogleUserProvider: CreateGoogleUserProvider,
+
   ) {}
 
   /**
@@ -116,4 +121,14 @@ export class UsersService {
   public async findOneByEmail(email: string) {
     return await this.findOneUserByEmailProvider.findOneByEmail(email);
   }
+
+  public async findOneByGoogleId(googleId: string) {
+    return await this.findOneByGoogleIdProvider.findOneByGoogleId(googleId);
+  }
+
+  public async createGoogleUser(googleUser: GoogleUser) {
+    return await this.createGoogleUserProvider.createGoogleUser(googleUser);
+  }
+
+
 }
